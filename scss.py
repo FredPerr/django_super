@@ -1,4 +1,14 @@
 import fileinput
+import sys
+import os
+import pathlib
+
+def _get_project_name():
+    manage_file_path = os.path.join(pathlib.Path(__file__).parent.absolute(), 'manage.py')
+    with open(manage_file_path) as file:
+        for line in file.readlines():
+            if 'DJANGO_SETTINGS_MODULE' in line:
+                return line.split("', '")[-1].split('.settings')[0]
 
 def _search_and_replace(file, occurence, replace_by):
     with fileinput.FileInput(file, inplace=True) as file:
@@ -8,10 +18,10 @@ def _search_and_replace(file, occurence, replace_by):
 
 def use_scss(val):
     if val == 'yes':
-        _search_and_replace('settings.py', 'USE_SCSS = False', 'USE_SCSS = True')
+        _search_and_replace(os.path.join(_get_project_name(), 'settings.py'), 'USE_SCSS = False', 'USE_SCSS = True')
         print('You have enabled SCSS on your project!')
     elif val == 'no':
-        _search_and_replace('settings.py', 'USE_SCSS = True', 'USE_SCSS = False')
+        _search_and_replace(os.path.join(_get_project_name(), 'settings.py'), 'USE_SCSS = True', 'USE_SCSS = False')
         print('You have disabled SCSS on your project!')
     else: print('The answer you have provided does is not one of the following accepted argument: (yes|no)...')
 
@@ -22,4 +32,6 @@ if __name__ == '__main__':
         use = input('Do you want to use SCSS in your project ? (yes|no):\n')
     else:
         use = args[0]
+
+    use_scss(use)
 
