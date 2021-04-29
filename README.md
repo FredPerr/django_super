@@ -1,10 +1,17 @@
 # django_super
-**Utility Scripts, Preinstall SCSS & Base Template for quick startup**
+**Preinstall _SCSS_ & and _TypeScript_, Utility Scripts and Base Template for a qucick Django project startup!**
 
-This Django project has `SCSS` preinstalled alongside a quick project _renaming script_ and a base template that handles the `static` folder related common tasks. 
+This Django project has `SCSS` and `TypeScript` preinstalled alongside a quick project _renaming_ and _install_ scripts and a base template that handles the `static` folder related common tasks. 
 
 ___
 ## Scripts
+
+`typescript.py`: A one-liner script that allow the user to disable and enable typscript utilization:
+> `python typescript.py (on|off)`
+
+`scss.py`: A one-liner script that allow the user to disable and enable SCSS utilization:
+> `python scss.py (on|off)`
+
 `rename.py`: A one-liner renaming script for your Django project.
 _Run the script with the following command pattern:_
 > `python rename.py (project name)`
@@ -12,23 +19,28 @@ _Run the script with the following command pattern:_
 ___
 
 ## Requirements / Dependencies ##
-Install the virutal environment:
+- Install the virutal environment:
 `pip install -r requirements.txt`
 
-which includes:
-```txt
-asgiref==3.3.1
-Django==3.1.7
-django-appconf==1.0.4
-django-compressor==2.4
-django-libsass==0.8
-libsass==0.20.1
-pytz==2021.1
-rcssmin==1.0.6
-rjsmin==1.1.0
-six==1.15.0
-sqlparse==0.4.1
-```
+    which includes:
+    ```txt
+    asgiref==3.3.1
+    Django==3.1.7
+    django-appconf==1.0.4
+    django-compressor==2.4
+    django-libsass==0.8
+    libsass==0.20.1
+    pytz==2021.1
+    rcssmin==1.0.6
+    rjsmin==1.1.0
+    six==1.15.0
+    sqlparse==0.4.1
+    ```
+
+- TypeScript (tsc) if activated in the project.
+
+    Install TypeScript with `npm` or refer to the [Official TypeScript website](https://www.typescriptlang.org/download)
+
 ___
 
 ## Project structure
@@ -65,21 +77,20 @@ ___
 
 This project uses **Apache License v2**: 
 **Permissions**:
-```
-Commercial use:
-    Distribution
-    Modification
-    Patent use
-    Private use
 
-Conditions:
-    License and copyright notice
-    State changes
+#### Commercial use: ####
+&#9989;Distribution
+&#9989;Modification
+&#9989;Patent use
+&#9989;Private use
 
-Limitations:
-    Liability
-    Trademark use
-    Warranty
-```
+#### Conditions: ####
+&#10071; License and copyright notice
+&#10071; State changes
+
+#### Limitations: ####
+&#10060; Liability
+&#10060; Trademark use
+&#10060; Warranty
 
 ___
