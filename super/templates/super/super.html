@@ -33,9 +33,10 @@
     </body>
 </html>
 
-{% if js_filename != None %}
-
-{% with 'script/'|add:js_filename as js_path %}
-<script src="{% static js_path %}"></script>
-{% endwith %}
+{% if script_filename != None %}
+    {% with 'script/'|add:script_filename as script_path %}
+        {% compress js %}
+            <script type="text/typescript" charset="utf-8" src="{% static script_path %}"></script>
+        {% endcompress %}
+    {% endwith %}
 {% endif %}

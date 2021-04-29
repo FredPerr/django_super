@@ -1,4 +1,5 @@
 import os
+from shutil import which
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -121,7 +122,24 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder'
 ]
 
-COMPRESS_PRECOMPILERS = (
-    ('text/x-scss', 'django_libsass.SassCompiler'),
-)
+USE_SCSS = True
+USE_TYPESCRIPT = True
+
+Compressors = []
+
+
+def get_precompilers():
+    precompilers = []
+    if USE_SCSS:
+        precompilers.append(tuple(['text/x-scss', 'django_libsass.SassCompiler']))
+    if USE_TYPESCRIPT:
+        if which('tsc') is not None:
+            precompilers.append(tuple(['text/typescript', 'tsc {infile} --out {outfile}']))
+        else:
+            print('**[ERROR]** The tsc (typescript) command could not be found on the system.\nMake sure that tsc is installed and in the system\'s path')
+    return precompilers
+
+
+
+COMPRESS_PRECOMPILERS = get_precompilers()
 
