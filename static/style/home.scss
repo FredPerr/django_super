@@ -14,20 +14,3 @@ div {
         font-size: 1.5rem;
     }
 }
-
-body {
-    animation: colorchange 5s linear 1s infinite;
-    -webkit-animation: colorchange 5s linear 0s infinite alternate;
-}
-
-@keyframes colorchange
-{
-    0%   {background: #fff;}
-    100% {background: #e3f1ec;}
-}
-
-@-webkit-keyframes colorchange
-{
-    0%   {background: #fff;}
-    100% {background: #e3f1ec;}
-}
