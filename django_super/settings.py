@@ -122,11 +122,10 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder'
 ]
 
+# Be careful when changing these two lines manually:
+# You should always keep the whitespace around the equal character (=)
 USE_SCSS = True
 USE_TYPESCRIPT = True
-
-Compressors = []
-
 
 def get_precompilers():
     precompilers = []

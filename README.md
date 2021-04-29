@@ -7,10 +7,10 @@ ___
 ## Scripts
 
 `typescript.py`: A one-liner script that allow the user to disable and enable typscript utilization:
-> `python typescript.py (on|off)`
+> `python typescript.py (yes|no)`
 
 `scss.py`: A one-liner script that allow the user to disable and enable SCSS utilization:
-> `python scss.py (on|off)`
+> `python scss.py (yes|no)`
 
 `rename.py`: A one-liner renaming script for your Django project.
 _Run the script with the following command pattern:_
