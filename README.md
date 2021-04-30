@@ -1,20 +1,16 @@
 # django_super
-**Preinstall _SCSS_ & and _TypeScript_, Utility Scripts and Base Template for a qucick Django project startup!**
+**Preinstall _SCSS_ & and _TypeScript_, Utility Script commands and Base Template for a qucick Django project startup!**
 
 This Django project has `SCSS` and `TypeScript` preinstalled alongside a quick project _renaming_ and _install_ scripts and a base template that handles the `static` folder related common tasks. 
 
 ___
-## Scripts
+## Script ([supervisor.py](https://github.com/FredPerr/django_super/blob/main/supervisor.py)) ##
 
-`typescript.py`: A one-liner script that allow the user to disable and enable typscript utilization:
-> `python typescript.py (yes|no)`
+`supervisor.py` is the command line manager for the scripts of this application.
 
-`scss.py`: A one-liner script that allow the user to disable and enable SCSS utilization:
-> `python scss.py (yes|no)`
-
-`rename.py`: A one-liner renaming script for your Django project.
-_Run the script with the following command pattern:_
-> `python rename.py (project name)`
+The available commands are the following:
+- `rename-project`: Rename the Django Project to the given value.
+- `select-compilers`: Choose the compilers used in the project (**TypeScript** & **SCSS**).
 
 ___
 
@@ -40,6 +36,8 @@ ___
 - TypeScript (tsc) if activated in the project.
 
     Install TypeScript with `npm` or refer to the [Official TypeScript website](https://www.typescriptlang.org/download)
+\
+ _By default, TypeScript is activated in the project, if you wish to disable it and not ultimately not install tsc, make sure to run the command `python supervisor.py select-compilers False (True or False for SCSS)`._
 
 ___
 
@@ -79,10 +77,10 @@ This project uses **Apache License v2**:
 **Permissions**:
 
 #### Commercial use: ####
-&#9989;Distribution
-&#9989;Modification
-&#9989;Patent use
-&#9989;Private use
+&#9989; Distribution
+&#9989; Modification
+&#9989; Patent use
+&#9989; Private use
 
 #### Conditions: ####
 &#10071; License and copyright notice

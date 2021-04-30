@@ -66,15 +66,9 @@ def rename_project(*args):
         print(f"Something went wrong while renaming the project... The action could not be done!")
 
 
-
-def install(*args):
-    pass
-
-
 COMMANDS = (
     (select_compilers, "use_typescript use_scss", "Enable or disable the use of TypeScript and/or SCSS. Both argument should be replace by True to activate it and False to desactivate it."),
     (rename_project, "name", "Rename the Django project. The name can contain alphanumerical values and underscores."),
-    (install, "", "Go through all the different parameters that can be configured with scripts.")
 )
 
 
