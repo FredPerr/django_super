@@ -40,7 +40,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'timeline.urls'
+ROOT_URLCONF = 'django_super.urls'
 
 TEMPLATES = [
     {
@@ -58,7 +58,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'timeline.wsgi.application'
+WSGI_APPLICATION = 'django_super.wsgi.application'
 
 
 # Database
