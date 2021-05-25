@@ -1,5 +1,5 @@
 # django_super
-**Preinstall _SCSS_ & and _TypeScript_, Utility Script commands and Base Template for a qucick Django project startup!**
+**Preinstalled _SCSS_ & and _TypeScript_, Utility Script commands and Base Template for a quick Django project startup!**
 
 This Django project has `SCSS` and `TypeScript` preinstalled alongside a quick project _renaming_ and _install_ scripts and a base template that handles the `static` folder related common tasks. 
 
