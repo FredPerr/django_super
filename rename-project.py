@@ -66,34 +66,14 @@ def rename_project(*args):
         print(f"Something went wrong while renaming the project... The action could not be done!")
 
 
-COMMANDS = (
-    (select_compilers, "use_typescript use_scss", "Enable or disable the use of TypeScript and/or SCSS. Both argument should be replace by True to activate it and False to desactivate it."),
-    (rename_project, "name", "Rename the Django project. The name can contain alphanumerical values and underscores."),
-)
-
-
-def help():
-    for cmd in COMMANDS:
-        print(cmd[2])
-        print(f'==> {cmd[0].__name__.replace("_", "-")} {cmd[1]}\n')
-
-
 if __name__ == '__main__':
 
-    CMD_NOT_FOUND = 'Make sure to use one of the valid commands below!'
-
-    if len(sys.argv[1:]) == 0:
-        help()
-        print(CMD_NOT_FOUND)
+    if len(sys.argv) != 2:
+        print('> python rename-project.py [project_name]')
         exit(0)
 
-    cmd = sys.argv[1].replace('-', "_")
-    cmds = [a_tuple[0] for a_tuple in COMMANDS]
-    for c in cmds:
-        if c.__name__ == cmd:
-            c(*sys.argv[2:])
-            exit(0)
-    print(CMD_NOT_FOUND)
+    name = sys.argv[1]
+    rename_project(name)
             
 
 

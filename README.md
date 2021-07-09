@@ -1,58 +1,63 @@
-# django_super
-**Preinstalled _SCSS_ & and _TypeScript_, Utility Script commands and Base Template for a quick Django project startup!**
+# Django Super
+## Table of content
+1. [Getting Started](#getting-started)
+2. [The accounts app](#the-accounts-app)
+3. [Template tags](#template-tags)
+4. [License](#license)
+## Getting started
+### Renaming the project
+If you wish to rename to project, use the following command:
+> python rename-project.py [project-name]
 
-This Django project has `SCSS` and `TypeScript` preinstalled alongside a quick project _renaming_ and _install_ scripts and a base template that handles the `static` folder related common tasks. 
+This will rename the entire project except for the root project folder, which you should rename by hand afterwards.
+### Starting with a new git repository
+If you want to create a project detached from the `django_super` repository, you may delete the `.git` folder at the root of the project folder. You can create a new one afterwards with `git init`.
+### Installing the requirements
+You may create a new virtual environment with and install the requirements.txt modules with pip. 
+> python -m venv venv
 
-___
-## Script ([supervisor.py](https://github.com/FredPerr/django_super/blob/main/supervisor.py)) ##
-
-`supervisor.py` is the command line manager for the scripts of this application.
-
-The available commands are the following:
-- `rename-project`: Rename the Django Project to the given value.
-- `select-compilers`: Choose the compilers used in the project (**TypeScript** & **SCSS**).
-
-___
-
-## Requirements / Dependencies ##
-- Install the virutal environment:
-`pip install -r requirements.txt`
-
-    which includes:
-    ```txt
-    asgiref==3.3.1
-    Django==3.1.7
-    django-appconf==1.0.4
-    django-compressor==2.4
-    django-libsass==0.8
-    libsass==0.20.1
-    pytz==2021.1
-    rcssmin==1.0.6
-    rjsmin==1.1.0
-    six==1.15.0
-    sqlparse==0.4.1
-    ```
-
-- TypeScript (tsc) if activated in the project.
-
-    Install TypeScript with `npm` or refer to the [Official TypeScript website](https://www.typescriptlang.org/download)
-\
- _By default, TypeScript is activated in the project, if you wish to disable it and not ultimately not install tsc, make sure to run the command `python supervisor.py select-compilers False (True or False for SCSS)`._
-
-___
-
-## Project structure
-
-&#x1F4C1;django_super/ &nbsp;&#8594; Main files of the django project (`settings.py`, `urls.py`, ...).
-
-&#x1F4C1;static/ &nbsp;&#8594; _Scripts_, _Stylesheets_ and _Images_ files.
-
-&#x1F4C1;super/ &nbsp;&#8594; Default main application containing the `super.html` base template and the `home.html` template. `home.html` extends `super.html`. By default `home.html` is the root url rendered page. 
-
-&#x1F4C1;super/templatetags &nbsp;&#8594; Contains useful template tags that may be added in the project such as `range`.
+__Don't forget to activate the environment before installing the requirements__
+> pip install -r requirements.txt
 
 
-## Template tags ##
+### Adding the environment variables
+This project uses environment variables to secure the `SECRET_KEY` and the email account informations such as `EMAIL_HOST_USER` and `EMAIL_HOST_PASSWORD` which are required for the accounts app.
+
+You may add those variables:
+[How to add system environment variables on Windows](https://superuser.com/a/949577)
+[How to add system environment variables on Max/Unix](https://apple.stackexchange.com/a/106823)
+
+### TypeScript
+TypeScript is enabled by default but it is not installed.
+To install `tsc`, use `npm` or refer to the [Official TypeScript website](https://www.typescriptlang.org/download)
+
+If you don't want to use TypeScript, you can disable it in the `settings.py` file of the project by setting `USE_TYPESCRIPT` to `False`.
+
+### SASS/SCSS
+SASS/SCSS is enabled by default. If you don't want to use it, you can disable it in the `settings.py` file of the project by setting `USE_SCSS` to `False`.
+
+### Others
+
+Django uses SQLite as its database for development.
+The `TIME_ZONE` parameter is not configured by default. You may see a list [here](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones#List).
+`DEFAULT_FROM_EMAIL` parameter in `settings.py` should also be changed.
+
+## The accounts app
+By default, the `accounts` app is installed. It provides a custom user model `Account`. An authentication system is configured with that model, which allows for login with email or username.
+Views for authentications, password change, password recovery via email and a details view are also setup.
+
+If you don't want to use this app, you can remove it from the `INSTALLED_APPS` in `settings.py` and delete the `accounts` folders. You should also change the `LOGIN_URL` in `settings.py` to another url route along with the `AUTH_USER_MODEL` and `AUTHENTICATION_BACKENDS` settings.
+
+To use the full potential of the app including the password reset system, you must setup a Google Account with an application password:
+
+Go to your `Google Account settings > Security > Enable 2 Steps Verification`
+Then, go into `Google Account settings > Security > Application passwords`.
+Create a new password and save the key.
+You may now add both system environment variables:
+`DJANGO_GMAIL_APP_EMAIL` to the gmail address of the account and
+`DJANGO_GMAIL_APP_PASSWORD` to the saved key generated for the app.
+
+## Template tags
 
 The template tag `range` simluate the `range()` function in Python. 
 Examples:
@@ -71,8 +76,7 @@ Outputs
 
 ___
 
-## License ##
-
+## License
 This project uses **Apache License v2**: 
 **Permissions**:
 
