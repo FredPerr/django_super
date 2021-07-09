@@ -1,0 +1,12 @@
+{% extends "super/super.html" %}
+{% load static %}
+{% load compress %}
+
+{% block content %}
+{% endblock %}
+
+{% block staticfiles %}
+    {% compress css %}
+    <link type="text/x-scss" href="{% static 'accounts/style/accounts.scss' %}" rel="stylesheet" media="screen">
+    {% endcompress %}
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "accounts/accounts-super.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+
+    {% if not request.user.is_authenticated %}
+        {{form.media}}
+        <form class="account-form" id="accounts_login_form" method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <button type="submit">Login</button>
+        </form>
+
+    {% else %}
+
+        <p>You are already logged in. If you want to log in with another account, <a href="{% url 'accounts:logout' %}">log out first</a></p>
+
+    {% endif %}
+
+{% endblock %}

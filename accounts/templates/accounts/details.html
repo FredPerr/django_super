@@ -1,0 +1,19 @@
+{% extends "base/accounts-super.html" %}
+
+{% block title %}Account details{% endblock %}
+
+{% block content %}
+
+{% if not username %}
+<h3>{{user.username}}'s account page</h3>
+<ul>
+    <li>Email address: {{user.email}}</li>
+    <li>Joined date:   {{user.date_joined}}</li>
+    <li>Last login:   {{user.last_login}}</li>
+</ul>
+
+{% else %}
+    <h3>Could not find the user {{username}}!</h3>
+{% endif %}
+
+{% endblock content %}

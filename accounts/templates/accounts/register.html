@@ -1,0 +1,14 @@
+{% extends "accouts/accounts-super.html" %}
+
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+
+<h3>Register your account</h3>
+<form class="account-form" id="accounts_register_form" method="POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit">Create my account</button>
+</form>
+
+{% endblock %}
