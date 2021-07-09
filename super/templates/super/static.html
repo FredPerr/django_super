@@ -1,0 +1,19 @@
+{% load compress %}
+{% load static %}
+
+{% if scss_path %}
+    {% compress css %}
+        <link type="text/x-scss" href="{% static 'super/style/theme.scss' %}" rel="stylesheet" media="screen">
+        <link type="text/x-scss" href="{% static scss_path %}" rel="stylesheet" media="screen">                
+    {% endcompress %}
+{% endif %}
+
+{% if css_path %}
+<link type="text/css" href="{% static css_path %}" rel="stylesheet" media="screen">                
+{% endif %}
+
+{% if ts_path %}
+    {% compress js %}
+        <script type="text/typescript" charset="utf-8" src="{% static ts_path %}"></script>
+    {% endcompress %}
+{% endif %}

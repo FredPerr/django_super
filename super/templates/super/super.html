@@ -1,29 +1,14 @@
 {% load static %}
-{% load compress %}
 <!DOCTYPE html>
 <html lang="en">
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Django Super</title>
-        <meta name="author" content="Fred Perron">
-        <meta name="description" content="Project description">
-        <link rel="shortcut icon" href="{% static 'img/favicon.svg' %}" type="image/x-icon">
-        {% compress css %}
-            <link type="text/x-scss" href="{% static 'style/theme.scss' %}" rel="stylesheet" media="screen">
-            {% if scss_filename != None %}
-                {% with 'style/'|add:scss_filename as scss_path %}
-                    <link type="text/x-scss" href="{% static scss_path %}" rel="stylesheet" media="screen">                
-                {% endwith %}
-            {% endif %}
-        {% endcompress %}
-
-        {% if css_filename != None %}
-            {% with 'css/'|add:css_filename as css_path %}
-                <link type="text/css" href="{% static css_path %}" rel="stylesheet" media="screen">                
-            {% endwith %}
-        {% endif %}
+        <title>{% block title %}{% endblock %}</title>
+        <meta name="author" content="Fred Perron"> <!-- @Override -->
+        <meta name="description" content="Project description"> <!-- @Override -->
+        <link rel="shortcut icon" href="{% static 'super/img/favicon.svg' %}" type="image/x-icon">
     </head>
     <body>
         <main>
@@ -33,10 +18,6 @@
     </body>
 </html>
 
-{% if script_filename != None %}
-    {% with 'script/'|add:script_filename as script_path %}
-        {% compress js %}
-            <script type="text/typescript" charset="utf-8" src="{% static script_path %}"></script>
-        {% endcompress %}
-    {% endwith %}
-{% endif %}
+{% include "super/static.html" %}
+{% block staticfiles %}
+{% endblock %}
