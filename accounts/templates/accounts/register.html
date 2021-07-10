@@ -4,11 +4,13 @@
 
 {% block content %}
 
-<h3>Register your account</h3>
-<form class="account-form" id="accounts_register_form" method="POST">
-    {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Create my account</button>
-</form>
+<div id="form-container">
+    <h3>Register your account</h3>
+    <form class="account-form" id="accounts_register_form" method="POST">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Create my account"></button>
+    </form>
+</div>
 
 {% endblock %}

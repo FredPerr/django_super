@@ -5,13 +5,16 @@
 {% block content %}
 
     {% if not request.user.is_authenticated %}
-        {{form.media}}
+    <div id="form-container">
         <form class="account-form" id="accounts_login_form" method="POST">
             {% csrf_token %}
             {{form.as_p}}
-            <button type="submit">Login</button>
+            <div class="form-buttons">
+                <a href="{% url 'accounts:register' %}">Create an account</a>
+                <input type="submit" value="Login">
+            </div>
         </form>
-
+    </div>
     {% else %}
 
         <p>You are already logged in. If you want to log in with another account, <a href="{% url 'accounts:logout' %}">log out first</a></p>
