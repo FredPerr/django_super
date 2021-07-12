@@ -1,7 +1,94 @@
 $color1: #1a73e8;
 $color2: #eeeeee;
-$color3: white;
+$color3: #dadce0;
+$color4: white;
+$color5: rgba(26, 115, 232, 0.04);
+$color6: #232323;
+$color7: #222222;
 $form-font-size: 1.2rem;
 $title-font-size: 1.8rem;
 
 
+html, body {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#form-container {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 35rem;
+    display: flex;
+    flex-direction: column;
+    transform: translateX(-50%);
+    padding: 4rem 3rem;
+    border: 1px solid $color3;
+    border-radius: 8px;
+    font-size: $form-font-size;
+    color: $color6;
+    letter-spacing: 1px;
+    box-sizing: border-box;
+
+    h3 {
+        font-size: $title-font-size;
+        margin-bottom: 2rem;
+        text-align: center;
+    }
+
+    * {
+        font-size: $form-font-size;
+        font-family: 'Open Sans', sans-serif;
+    }
+
+    input {
+        border: 1px solid $color3;
+        border-radius: 4px;
+        padding: 1.4rem;
+        width: 100%;
+        margin-bottom: 3rem;
+        color: $color7;
+        &:focus {
+            outline: 2px solid $color1;
+            border: 1px solid $color4;
+        }
+    }
+
+    label {
+        position: absolute;
+        left: 2rem;
+        background-color: $color4;
+        padding: 0.3rem;
+        border-radius: 3px;
+    }
+
+    button {
+        background-color: $color1;
+        color: $color4;
+        border: none;
+        border-radius: 4px;
+        padding: 0.4rem 1rem;
+    }
+}
+
+#form-action-buttons {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+
+    a {
+        display: inline-flex;
+        text-decoration: none;
+        height: 100%;
+        color: $color1;
+        vertical-align: middle;
+        justify-content: center;
+        padding: 1rem;
+        border-radius: 4px;
+        &:hover {
+            background-color: $color5;
+        }
+    }
+}

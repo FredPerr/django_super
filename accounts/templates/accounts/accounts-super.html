@@ -1,12 +1,15 @@
 {% extends "super/super.html" %}
-{% load static %}
-{% load compress %}
 
 {% block content %}
-{% endblock %}
-
-{% block staticfiles %}
-    {% compress css %}
-    <link type="text/x-scss" href="{% static 'accounts/style/accounts.scss' %}" rel="stylesheet" media="screen">
-    {% endcompress %}
+    <div id="form-container">
+        <h3>{% block form-title %}{% endblock %}</h3>
+        <form id="account-form">
+            {% csrf_token %}
+            {{form.as_p}}
+            <div id="form-action-buttons">
+                {% block action-buttons %}{% endblock %}
+                <button id="form-submit-button" type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
 {% endblock %}

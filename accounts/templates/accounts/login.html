@@ -2,23 +2,15 @@
 
 {% block title %}Login{% endblock %}
 
-{% block content %}
+{% block form-title %}Login now{% endblock %}
 
-    {% if not request.user.is_authenticated %}
-    <div id="form-container">
-        <form class="account-form" id="accounts_login_form" method="POST">
-            {% csrf_token %}
-            {{form.as_p}}
-            <div class="form-buttons">
-                <a href="{% url 'accounts:register' %}">Create an account</a>
-                <input type="submit" value="Login">
-            </div>
-        </form>
+{% block action-buttons %}
+
+    <div id="form-action-buttons-container">
+
+        <div class="form-action-buttons">
+            <a href="{% url 'accounts:register' %}">Create an account</a>
+        </div>
     </div>
-    {% else %}
-
-        <p>You are already logged in. If you want to log in with another account, <a href="{% url 'accounts:logout' %}">log out first</a></p>
-
-    {% endif %}
 
 {% endblock %}
