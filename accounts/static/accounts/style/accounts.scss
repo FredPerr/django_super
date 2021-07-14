@@ -19,6 +19,7 @@ html, body {
 #form-container {
     position: absolute;
     left: 50%;
+    margin-top: 50px;
     transform: translateX(-50%);
     width: 35rem;
     display: flex;
@@ -36,6 +37,7 @@ html, body {
         font-size: $title-font-size;
         margin-bottom: 2rem;
         text-align: center;
+        color: $color6;
     }
 
     * {
@@ -69,7 +71,7 @@ html, body {
         color: $color4;
         border: none;
         border-radius: 4px;
-        padding: 0.4rem 1rem;
+        padding: 0.7rem 1.5rem;
     }
 }
 
@@ -85,7 +87,8 @@ html, body {
         color: $color1;
         vertical-align: middle;
         justify-content: center;
-        padding: 1rem;
+        padding: 0.7rem;
+        font-weight: 500;
         border-radius: 4px;
         &:hover {
             background-color: $color5;
