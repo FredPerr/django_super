@@ -5,7 +5,7 @@ from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
 from .models import Account
-from .forms import LoginForm, RegisterForm, PasswordChangeForm, PasswordResetForm
+from .forms import LoginForm, PasswordResetConfirmForm, RegisterForm, PasswordChangeForm, PasswordResetForm
 
 
 EXTRA_CONTEXT = {
@@ -61,7 +61,7 @@ class PasswordResetDoneView(views.PasswordResetDoneView):
 class PasswordResetConfirmView(views.PasswordResetConfirmView):
     template_name = 'accounts/password/password-reset-confirm.html'
     success_url = reverse_lazy('accounts:password-reset-complete')
-    form_class = PasswordResetForm
+    form_class = PasswordResetConfirmForm
     extra_context = EXTRA_CONTEXT
 
 

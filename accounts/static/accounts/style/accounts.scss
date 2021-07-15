@@ -144,6 +144,23 @@ $color7: #b32d2d;
 
 
 #registration-form-box {
-    padding-top: 1.5rem;
-    padding-bottom: 1.5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+
+#password-reset-form-box, #password-reset-confirm-form-box .buttons-container {
+    justify-content: right;
+}
+
+#password-reset-done-form-box {
+    text-align: center;
+
+    a {
+        margin-top: 1rem;
+        color: $color2;
+        &:hover {
+            color: $color6;
+        }
+    }
 }

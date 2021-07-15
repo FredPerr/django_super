@@ -24,7 +24,7 @@
             <div class="input-holder">
                 {{ form.password1 }}
                 <label class="placeholder" for="{{form.password1.id_for_label}}">Set a password</label>
-                {{ form.password.errors }}
+                {{ form.password1.errors }}
             </div>
             <div class="input-holder">
                 {{ form.password2 }}
@@ -32,7 +32,7 @@
                 <div class="error-msg-container">
                     {{ form.non_field_errors }}
                 </div>
-                {{ form.password.errors }}
+                {{ form.password2.errors }}
             </div>
             
             <div class="buttons-container">

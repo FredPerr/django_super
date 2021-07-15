@@ -1,6 +1,6 @@
 from django.contrib.auth.forms import AuthenticationForm, UserCreationForm, PasswordChangeForm, PasswordResetForm, SetPasswordForm
 from django import forms
-from django.contrib.auth import get_user_model
+from django.contrib.auth import get_user_model, password_validation
 
 
 INPUT_ATTRIBUTES = {'placeholder': ' ', 'class': 'input'}
@@ -32,8 +32,22 @@ class PasswordChange(PasswordChangeForm):
 
 
 class PasswordResetForm(PasswordResetForm):
-    pass
+    email = forms.EmailField(
+        label="Email",
+        max_length=254,
+        widget=forms.EmailInput(attrs=dict({'autocomplete': 'email'}, **INPUT_ATTRIBUTES)
+    ))
 
 
 class PasswordResetConfirmForm(SetPasswordForm):
-    pass
+    new_password1 = forms.CharField(
+        label= "New password",
+        widget=forms.PasswordInput(attrs=dict({'autocomplete': 'new-password'}, **INPUT_ATTRIBUTES)),
+        strip=False,
+        help_text=password_validation.password_validators_help_text_html(),
+    )
+    new_password2 = forms.CharField(
+        label= "New password confirmation",
+        strip=False,
+        widget=forms.PasswordInput(attrs=dict({'autocomplete': 'new-password'}, **INPUT_ATTRIBUTES)),
+    )
