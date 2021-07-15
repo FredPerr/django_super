@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
 // Colors:
-$color-blue: #2a7de9;
-$color-dark-blue: #1865c9;
-$color-red: #b32d2d;
-$color-lighter-red: #ffd3d3;
 $color-gray: #626262;
 $color-white: white;
 $color-light-white: #f5f8ff;
 $color-lighter-gray: #e2e2e2;
 $color-light-gray: #e2e2e2;
+$color-blue: #2a7de9;
+$color-dark-blue: #1865c9;
+$color-red: #b32d2d;
+$color-lighter-red: #ffd3d3;
 $color-lighter-orange: #ffead6;
 $color-lighter-green: #dffff0;
 $color-ligther-blue: #edf3ff;
@@ -19,7 +19,7 @@ $box-shadow: 1px 5px 26px 0px #acacac;
 
 .error { background-color: $color-lighter-red; }
 .warning { background-color: $color-lighter-orange; }
-.success { background-color: $color-ligther-green; }
+.success { background-color: $color-lighter-green; }
 .info { background-color: $color-ligther-blue; }
 
 :root {
