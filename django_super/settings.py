@@ -132,7 +132,7 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = os.getenv('DJANGO_GMAIL_APP_EMAIL')
 EMAIL_HOST_PASSWORD = os.getenv('DJANGO_GMAIL_APP_PASSWORD')
-DEFAULT_FROM_EMAIL = 'Entreprise Team <noreply@team@gmail.com>'
+# DEFAULT_FROM_EMAIL = 'Entreprise Team <noreply@team@gmail.com>'
 
 USE_SCSS = True
 USE_TYPESCRIPT = True
