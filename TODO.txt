@@ -1,0 +1,4 @@
+- Translation system
+- Email recovery via SMS
+- Picture uploading
+- SSL/HTTPS
