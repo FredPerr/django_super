@@ -2,6 +2,7 @@ from django.urls import reverse_lazy
 from django.views import generic
 from django.contrib.auth import views
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 from django.shortcuts import render
 
 from .models import Account
@@ -19,6 +20,10 @@ class RegisterView(generic.CreateView):
     form_class = RegisterForm
     success_url = reverse_lazy('accounts:login')
     extra_context = EXTRA_CONTEXT
+
+    def get_success_url(self):
+        messages.add_message(self.request,messages.SUCCESS, "Your account have been created successfully!")
+        return super().get_success_url()
 
 
 class LoginView(views.LoginView):
@@ -72,7 +77,7 @@ class PasswordResetCompleteView(views.PasswordResetCompleteView):
 
 @login_required
 def details(request, username=''):
-
+    messages.success(request, "This is a test messages to test the styling of the website.", extra_tags={'expire':True})
     if username == '':
         return render(request, 'accounts/details.html', context={'user': request.user, **EXTRA_CONTEXT})
     

@@ -1,0 +1,48 @@
+<script>
+
+    function removeMessage(id){
+        message = document.getElementById(id);
+        if (message == null)
+            return;
+        message.style.opacity = 0
+        setTimeout(() => {
+            message.remove()
+        }, 300);
+    }
+    
+    function setExpiration(ms, id){
+        bar = document.getElementById(id);
+        if (bar == null)
+            return;
+        bar.style.backgroundColor='rgba(0, 0, 0, 0.1)';
+        var ms_done = 0;
+        var interval = setInterval(() => {
+            ms_done+=50;
+            bar.style.width = (ms_done / 100) + '%'
+            if (ms_done >= ms){
+                removeMessage(bar.parentNode.id)
+                clearInterval(interval)
+            }
+        }, 50);
+    }
+    </script>
+
+{% if messages %}
+    <div id="messages-container">
+        {% for message in messages %}
+        <div id="message_{{forloop.counter}}"class="message {{message.level_tag}}">
+            <div class="message-content">
+                <span>{{message}}</span>
+                <button onclick="removeMessage('message_{{forloop.counter}}')">&#10006;</button>
+            </div>
+            <div class="message-expire-bar" id="message_bar_{{forloop.counter}}">
+                <div>
+                </div>
+                <script>
+                    setExpiration(10000, 'message_bar_{{forloop.counter}}');
+                </script>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endif %}

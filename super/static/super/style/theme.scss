@@ -20,3 +20,52 @@ html, body {
 a {
     text-decoration: none;
 }
+
+#messages-container {
+    position: absolute;
+    width: 25rem;
+    text-align: center;
+    top: 10%;
+    right: 0;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1);
+    margin-bottom: 1rem;
+    color: #585858;
+    font-weight: 600;
+    box-shadow: 1px 5px 5px 0px #e7e7e7;
+    font-size: 1.1rem;
+    border-radius: 6px;
+    padding: 1rem 1.5rem 0 1.5rem;
+
+    .message-content {
+        display: inline-flex;
+        justify-content: space-between;
+    }
+
+    button {
+        float: right;
+        border: none;
+        background: none;
+        color: #585858;
+        cursor: pointer;
+        margin-left: 1rem;
+    }
+
+    .message-expire-bar {
+        margin-top: .5rem;
+        height: .2rem;
+        div{
+            height: 100%;
+            width: auto;
+        }
+    }
+}
+
+.error {background-color: #ffd3d3;}
+.warning {background-color: #ffead6;}
+.success {background-color: #dffff0;}
+.info {background-color: #edf3ff;}
