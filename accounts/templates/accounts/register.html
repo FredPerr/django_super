@@ -1,16 +1,45 @@
-{% extends "accounts/accounts-super.html" %}
-
+{% extends "super/super.html" %}
+{% load static %}
 {% block title %}Registration{% endblock %}
 
 {% block content %}
+<div class="form-container">
+    <div id="registration-form-box" class="form-box">
+        <img class="form-icon" src="{% static 'super/img/favicon.svg' %}" alt="">
+        <h3 class="form-title">Registration</h3>
+        <form method="post">
+            {% csrf_token %}
+            <div class="input-holder">
+                {{ form.username }}
+                <label class="placeholder" for="{{form.username.id_for_label}}">Username</label>
+                {{ form.username.errors }}
+            </div>
 
-<div id="form-container">
-    <h3>Register your account</h3>
-    <form class="account-form" id="accounts_register_form" method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Create my account"></button>
-    </form>
+            <div class="input-holder">
+                {{ form.email }}
+                <label class="placeholder" for="{{form.email.id_for_label}}">Email</label>
+                {{ form.email.errors }}
+            </div>
+
+            <div class="input-holder">
+                {{ form.password1 }}
+                <label class="placeholder" for="{{form.password1.id_for_label}}">Set a password</label>
+                {{ form.password.errors }}
+            </div>
+            <div class="input-holder">
+                {{ form.password2 }}
+                <label class="placeholder" for="{{form.password2.id_for_label}}">Confirm password</label>
+                <div class="error-msg-container">
+                    {{ form.non_field_errors }}
+                </div>
+                {{ form.password.errors }}
+            </div>
+            
+            <div class="buttons-container">
+                <a class="link" href="{% url 'accounts:login' %}">Login instead</a>
+                <button class="button" type="submit">Continue</button>
+            </div>
+        </form>
+    </div>
 </div>
-
 {% endblock %}
