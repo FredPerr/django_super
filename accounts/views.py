@@ -74,10 +74,10 @@ class PasswordResetCompleteView(views.PasswordResetCompleteView):
 def details(request, username=''):
 
     if username == '':
-        return render(request, 'accounts/details.html', context={'user': request.user})
+        return render(request, 'accounts/details.html', context={'user': request.user, **EXTRA_CONTEXT})
     
     try:
         user = Account.objects.get(username=username)
     except Account.DoesNotExist:
-        return render(request, 'accounts/details.html', context={'username': username})
-    return render(request, 'accounts/details.html', context={'user': user})
+        return render(request, 'accounts/details.html', context={'username': username, **EXTRA_CONTEXT})
+    return render(request, 'accounts/details.html', context={'user': user, **EXTRA_CONTEXT})

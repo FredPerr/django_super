@@ -7,6 +7,9 @@ $color6: #1865c9;
 $color7: #b32d2d;
 
 
+$box-border-radius: 6px;
+$box-shadow: 1px 5px 26px 0px #acacac;
+
 .input-holder {
     position: relative;
     margin-top: 2rem;
@@ -61,7 +64,7 @@ $color7: #b32d2d;
 .button {
     background-color: $color2;
     border: none;
-    border-radius: 6px;
+    border-radius: $box-border-radius;
     color: $color4;
     padding: 0.6rem 1rem;
     font-size: 1.1rem;
@@ -75,7 +78,7 @@ $color7: #b32d2d;
 
 .link {
     border: none;
-    border-radius: 6px;
+    border-radius: $box-border-radius;
     color: $color2;
     padding: 0.6rem 0.4rem;
     font-size: 1.1rem;
@@ -105,7 +108,7 @@ $color7: #b32d2d;
 
 .form-box {
     flex-wrap: wrap;
-    box-shadow: 1px 5px 26px 0px #acacac;
+    box-shadow: $box-shadow;
     padding: 6rem 5rem;
     display: flex;
     flex-direction: column;
@@ -161,6 +164,26 @@ $color7: #b32d2d;
         color: $color2;
         &:hover {
             color: $color6;
+        }
+    }
+}
+
+#details-box {
+    padding: 6rem;
+    border-radius: $box-border-radius;
+    box-shadow: $box-shadow;
+    color: $color3;
+    font-size: 1.2rem;
+
+    h3 {
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+    ul {
+        list-style-type: none;
+        li {
+            margin-bottom: .7rem;
         }
     }
 }
