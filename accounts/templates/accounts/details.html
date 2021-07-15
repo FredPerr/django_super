@@ -5,7 +5,7 @@
 {% block content %}
 <div class="form-container">
     <div id="details-box">
-        <a class="top-right-button" href="{% url 'accounts:logout' %}">&#8689;</a>
+        <a alt="Logout" class="top-right-button" href="{% url 'accounts:logout' %}">&#8689;</a>
         {% if not username %}
         <h3>{{user.username}}'s account</h3>
         <ul>

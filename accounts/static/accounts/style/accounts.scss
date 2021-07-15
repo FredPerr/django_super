@@ -137,9 +137,9 @@ $box-shadow: 1px 5px 26px 0px #acacac;
 .top-right-button {
     display: block;
     position: absolute;
-    right: 1.5rem;
+    right: 1rem;
     top: 1rem;
-    font-size: 1.8rem;
+    font-size: 2rem;
     color: $color8;
 }
 
@@ -163,8 +163,12 @@ $box-shadow: 1px 5px 26px 0px #acacac;
 }
 
 
-#password-reset-form-box, #password-reset-confirm-form-box .buttons-container {
-    justify-content: right;
+#password-reset-confirm-form-box .buttons-container, .info-box {
+    justify-content: center;
+    text-align: center;
+    a {
+        color: $color6;
+    }
 }
 
 #password-reset-done-form-box {
@@ -194,6 +198,7 @@ $box-shadow: 1px 5px 26px 0px #acacac;
     }
     ul {
         list-style-type: none;
+        box-sizing: border-box;
         li {
             margin-bottom: .7rem;
         }
