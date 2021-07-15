@@ -1,5 +1,26 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
 
+// Colors:
+$color-blue: #2a7de9;
+$color-dark-blue: #1865c9;
+$color-red: #b32d2d;
+$color-lighter-red: #ffd3d3;
+$color-gray: #626262;
+$color-white: white;
+$color-light-white: #f5f8ff;
+$color-lighter-gray: #e2e2e2;
+$color-light-gray: #e2e2e2;
+$color-lighter-orange: #ffead6;
+$color-lighter-green: #dffff0;
+$color-ligther-blue: #edf3ff;
+
+$box-border-radius: 6px;
+$box-shadow: 1px 5px 26px 0px #acacac;
+
+.error { background-color: $color-lighter-red; }
+.warning { background-color: $color-lighter-orange; }
+.success { background-color: $color-ligther-green; }
+.info { background-color: $color-ligther-blue; }
 
 :root {
     font-size: 14px;
@@ -27,45 +48,40 @@ a {
     text-align: center;
     top: 10%;
     right: 0;
-}
 
-.message {
-    display: flex;
-    flex-direction: column;
-    transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1);
-    margin-bottom: 1rem;
-    color: #585858;
-    font-weight: 600;
-    box-shadow: 1px 5px 5px 0px #e7e7e7;
-    font-size: 1.1rem;
-    border-radius: 6px;
-    padding: 1rem 1.5rem 0 1.5rem;
-
-    .message-content {
-        display: inline-flex;
-        justify-content: space-between;
-    }
-
-    button {
-        float: right;
-        border: none;
-        background: none;
+    .message {
+        display: flex;
+        flex-direction: column;
+        transition: all .2s cubic-bezier(0.075, 0.82, 0.165, 1);
+        margin-bottom: 1rem;
         color: #585858;
-        cursor: pointer;
-        margin-left: 1rem;
-    }
-
-    .message-expire-bar {
-        margin-top: .5rem;
-        height: .2rem;
-        div{
-            height: 100%;
-            width: auto;
+        font-weight: 600;
+        box-shadow: 1px 5px 5px 0px #e7e7e7;
+        font-size: 1.1rem;
+        border-radius: 6px;
+        padding: 1rem 1.5rem 0 1.5rem;
+    
+        .message-content {
+            display: inline-flex;
+            justify-content: space-between;
+        }
+    
+        button {
+            float: right;
+            border: none;
+            background: none;
+            color: #585858;
+            cursor: pointer;
+            margin-left: 1rem;
+        }
+    
+        .message-expire-bar {
+            margin-top: .5rem;
+            height: .2rem;
+            div{
+                height: 100%;
+                width: auto;
+            }
         }
     }
 }
-
-.error {background-color: #ffd3d3;}
-.warning {background-color: #ffead6;}
-.success {background-color: #dffff0;}
-.info {background-color: #edf3ff;}

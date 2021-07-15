@@ -1,15 +1,5 @@
-$color1: #e2e2e2;
-$color2: #2a7de9;
-$color3: #626262;
-$color4: white;
-$color5: #f5f8ff;
-$color6: #1865c9;
-$color7: #b32d2d;
-$color8: #d3d3d3;
+@import "theme";
 
-
-$box-border-radius: 6px;
-$box-shadow: 1px 5px 26px 0px #acacac;
 
 .input-holder {
     position: relative;
@@ -23,7 +13,7 @@ $box-shadow: 1px 5px 26px 0px #acacac;
     font-size: 16px;
     padding: 1rem;
     border-radius: 4px;
-    border: 1px solid $color1;
+    border: 1px solid $color-lighter-gray;
     width: 22rem;
     outline: none;
 }
@@ -31,17 +21,17 @@ $box-shadow: 1px 5px 26px 0px #acacac;
 // Maybe don't use this in production, hasn't been cross browser tested...
 .input:not(:placeholder-shown).input:not(:focus) + .placeholder {
     transform: scale(.75) translateY(-39px) translateX(-5px);
-    color: $color1;
+    color: $color-lighter-gray;
 }
 
 
 .input:focus {
-    border: 2px solid $color2;
+    border: 2px solid $color-blue;
 } 
 
 .input:focus + .placeholder {
     transform: scale(.75) translateY(-39px) translateX(-5px);
-    color: $color2;
+    color: $color-blue;
 } 
 
 .placeholder {
@@ -49,7 +39,7 @@ $box-shadow: 1px 5px 26px 0px #acacac;
     top: 17px;
     left: 8px;
     padding: 0 8px;
-    background-color: $color4;
+    background-color: $color-white;
     transition: transform 150ms cubic-bezier(0.4,0,0.2,1), opacity 150ms cubic-bezier(0.4,0,0.2,1);
     color: #626262;
     cursor: text;
@@ -63,24 +53,24 @@ $box-shadow: 1px 5px 26px 0px #acacac;
 }
 
 .button {
-    background-color: $color2;
+    background-color: $color-blue;
     border: none;
     border-radius: $box-border-radius;
-    color: $color4;
+    color: $color-white;
     padding: 0.6rem 1rem;
     font-size: 1.1rem;
     cursor: pointer;
 
     transition: background-color 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
     &:hover {
-        background-color: $color6;
+        background-color: $color-dark-blue;
     }
 }
 
 .link {
     border: none;
     border-radius: $box-border-radius;
-    color: $color2;
+    color: $color-blue;
     padding: 0.6rem 0.4rem;
     font-size: 1.1rem;
     cursor: pointer;
@@ -88,8 +78,8 @@ $box-shadow: 1px 5px 26px 0px #acacac;
 
     transition: background-color 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
     &:hover {
-        background-color: $color5;
-        color: $color6;
+        background-color: $color-light-white;
+        color: $color-dark-blue;
     }
 }
 
@@ -127,10 +117,10 @@ $box-shadow: 1px 5px 26px 0px #acacac;
 }
 
 .link-password-reset {
-    color: $color2;
+    color: $color-blue;
     margin: 0.3rem;
     &:hover {
-        color: $color6;
+        color: $color-dark-blue;
     }
 }
 
@@ -140,11 +130,11 @@ $box-shadow: 1px 5px 26px 0px #acacac;
     right: 1rem;
     top: 1rem;
     font-size: 2rem;
-    color: $color8;
+    color: $color-light-gray;
 }
 
 .errorlist {
-    color: $color7;
+    color: $color-red;
 
     font-size: 0.9rem;
     list-style-type: none;
@@ -167,7 +157,7 @@ $box-shadow: 1px 5px 26px 0px #acacac;
     justify-content: center;
     text-align: center;
     a {
-        color: $color6;
+        color: $color-dark-blue;
     }
 }
 
@@ -176,9 +166,9 @@ $box-shadow: 1px 5px 26px 0px #acacac;
 
     a {
         margin-top: 1rem;
-        color: $color2;
+        color: $color-blue;
         &:hover {
-            color: $color6;
+            color: $color-dark-blue;
         }
     }
 }
@@ -188,7 +178,7 @@ $box-shadow: 1px 5px 26px 0px #acacac;
     padding: 6rem;
     border-radius: $box-border-radius;
     box-shadow: $box-shadow;
-    color: $color3;
+    color: $color-gray;
     font-size: 1.2rem;
 
     h3 {
