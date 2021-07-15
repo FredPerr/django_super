@@ -5,6 +5,7 @@ $color4: white;
 $color5: #f5f8ff;
 $color6: #1865c9;
 $color7: #b32d2d;
+$color8: #d3d3d3;
 
 
 $box-border-radius: 6px;
@@ -107,6 +108,7 @@ $box-shadow: 1px 5px 26px 0px #acacac;
 }
 
 .form-box {
+    position: relative;
     flex-wrap: wrap;
     box-shadow: $box-shadow;
     padding: 6rem 5rem;
@@ -130,6 +132,15 @@ $box-shadow: 1px 5px 26px 0px #acacac;
     &:hover {
         color: $color6;
     }
+}
+
+.top-right-button {
+    display: block;
+    position: absolute;
+    right: 1.5rem;
+    top: 1rem;
+    font-size: 1.8rem;
+    color: $color8;
 }
 
 .errorlist {
@@ -169,6 +180,7 @@ $box-shadow: 1px 5px 26px 0px #acacac;
 }
 
 #details-box {
+    position: relative;
     padding: 6rem;
     border-radius: $box-border-radius;
     box-shadow: $box-shadow;

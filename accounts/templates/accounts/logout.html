@@ -1,5 +1,12 @@
 {% extends "super/super.html" %}
+{% load static %}
 
 {% block content %}
-    You have logged out successfully! Do you want to <a href="{% url 'accounts:login' %}">login again</a>?
+<div class="form-container">
+    <div class="form-box" id="password-reset-done-form-box">
+        <img class="form-icon" src="{% static 'super/img/favicon.svg' %}" alt="">
+        <h3 class="form-title">You have logged out successfully!</h3>
+        <p>Do you want to <a href="{% url 'accounts:login' %}">login again</a>?</p>
+    </div>
+</div>
 {% endblock %}
