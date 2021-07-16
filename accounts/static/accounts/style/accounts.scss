@@ -70,23 +70,13 @@ $input-transform: scale(.75) translateY(-2.79rem) translateX(-0.36rem);
     }
 
     a[href] {
-
-    }
-}
-
-.link {
-    border: none;
-    border-radius: $box-border-radius;
-    color: $color-blue;
-    padding: 0.6rem 0.4rem;
-    font-size: 1.1rem;
-    cursor: pointer;
-    text-decoration: none;
-
-    transition: background-color 200ms cubic-bezier(0.075, 0.82, 0.165, 1);
-    &:hover {
-        background-color: $color-light-white;
-        color: $color-dark-blue;
+        @include clickable;
+        color: $color-blue;
+        text-decoration: none;
+        &:hover {
+            background-color: $color-light-white;
+            color: $color-dark-blue;
+        }
     }
 }
 
