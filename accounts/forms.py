@@ -3,7 +3,7 @@ from django import forms
 from django.contrib.auth import get_user_model, password_validation
 
 
-INPUT_ATTRIBUTES = {'placeholder': ' ', 'class': 'input'}
+INPUT_ATTRIBUTES = {'placeholder': ' '}
 
 
 class RegisterForm(UserCreationForm):
