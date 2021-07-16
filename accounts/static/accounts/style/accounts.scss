@@ -17,7 +17,6 @@
     outline: none;
 }
 
-// Maybe don't use this in production, hasn't been cross browser tested...
 .input:not(:placeholder-shown).input:not(:focus) + .placeholder {
     transform: scale(.75) translateY(-2.79rem) translateX(-0.36rem);
     color: $color-lighter-gray;
