@@ -2,6 +2,7 @@
 
 // Colors:
 $color-gray: #626262;
+$color-dark-gray: #1e1e1e;
 $color-white: white;
 $color-light-white: #f5f8ff;
 $color-lighter-gray: #e2e2e2;
@@ -13,6 +14,8 @@ $color-lighter-red: #ffd3d3;
 $color-lighter-orange: #ffead6;
 $color-lighter-green: #dffff0;
 $color-ligther-blue: #edf3ff;
+
+$color-bg: white;
 
 $box-border-radius: 0.43rem;
 $box-shadow: 0.07rem 0.36rem 1.86rem 0 #acacac;
@@ -36,15 +39,23 @@ $breakpoints: (phone: 640px,
     padding: 0;
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
+    color: $color-dark-gray;
 }
 
 html, body {
     width: 100%;
     height: 100%;
+    background-color: $color-bg;
 }
 
 a {
     text-decoration: none;
+}
+
+input {
+    background-color: $color-white;
+    color: $color-gray;
+    border-color: $color-lighter-gray;
 }
 
 #messages-container {
