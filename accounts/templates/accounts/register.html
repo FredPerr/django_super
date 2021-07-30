@@ -10,25 +10,25 @@
         <form method="post">
             {% csrf_token %}
             <div class="form-field">
-                {{ form.username }}
                 <label class="field-label" for="{{form.username.id_for_label}}">Username</label>
+                {{ form.username }}
                 {{ form.username.errors }}
             </div>
 
             <div class="form-field">
-                {{ form.email }}
                 <label class="field-label" for="{{form.email.id_for_label}}">Email</label>
+                {{ form.email }}
                 {{ form.email.errors }}
             </div>
 
             <div class="form-field">
-                {{ form.password1 }}
                 <label class="field-label" for="{{form.password1.id_for_label}}">Set a password</label>
+                {{ form.password1 }}
                 {{ form.password1.errors }}
             </div>
             <div class="form-field">
-                {{ form.password2 }}
                 <label class="field-label" for="{{form.password2.id_for_label}}">Confirm password</label>
+                {{ form.password2 }}
                 <div class="error-msg-container">
                     {{ form.non_field_errors }}
                 </div>

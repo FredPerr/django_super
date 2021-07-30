@@ -11,14 +11,14 @@
         <form method="post">
             {% csrf_token %}
             <div class="form-field">
-                {{ form.username }}
                 <label class="field-label" for="{{form.username.id_for_label}}">Email or username</label>
+                {{ form.username }}
                 {{ form.username.errors }}
             </div>
 
             <div class="form-field">
-                {{ form.password }}
                 <label class="field-label" for="{{form.password.id_for_label}}">Password</label>
+                {{ form.password }}
                 <div class="error-msg-container">
                     {{ form.non_field_errors }}
                 </div>
