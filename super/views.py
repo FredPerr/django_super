@@ -1,8 +1,7 @@
+from django.http.request import HttpRequest
+from django.http.response import HttpResponse
 from django.shortcuts import render
 
 
 def home(request):
-    return render(request, 'super/home.html', context={
-        'scss_path': 'super/style/home.scss', 
-        'ts_path': 'super/script/home.ts'
-    })
+    return HttpResponse(f'[{request.path}] Home page')
