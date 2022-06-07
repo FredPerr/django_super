@@ -1,4 +1,11 @@
-venv
-dump.txt
+venv/
+build/
+__pycache__
+dist/
+*.egg-info/
 *.pyc
-*.log
+*.pyo
+migrations/
+core/fixtures/debug.json
+fontawesome/
+dump.txt
