@@ -1,17 +1,27 @@
 from django.contrib import admin
+from django.contrib.auth import admin as auth_admin
 
+from .forms import UserCreationForm, UserEditForm
 from .models import User
 
 
-class UserAdmin(admin.ModelAdmin):
-    fieldsets = [
-        (None, {'fields': ['username', 'email']}),
-        ('Sensible information', {'fields': ['password'], 'classes': ['collapse']}),
-        ('Permissions', {'fields': ['is_staff', 'is_admin', 'is_superuser', 'is_active'], 'classes': ['collapse']})
-    ]
-    list_filter = ['date_joined', 'last_login', 'is_superuser', 'is_admin', 'is_staff']
-    search_fields = ['id', 'username', 'email']
-    list_display = ('id', 'username', 'email', 'is_superuser', 'is_admin')
+class UserAdmin(auth_admin.UserAdmin):
+    add_form = UserCreationForm
+    form = UserEditForm
+    model = User
+    list_display = ('email', 'is_staff', 'is_active',)
+    list_filter = ('email', 'is_staff', 'is_active',)
+    fieldsets = (
+        (None, {'fields': ('email', 'password')}),
+        ('Permissions', {'fields': ('is_staff', 'is_active')}),
+    )
+    add_fieldsets = (
+        (None, {
+            'fields': ('email', 'password1', 'password2', 'is_staff', 'is_active')}
+        ),
+    )
+    search_fields = ('email',)
+    ordering = ('email',)
 
 
 admin.site.register(User, UserAdmin)
