@@ -9,8 +9,27 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
-
+import os
 from pathlib import Path
+
+
+NORREP_CONFIG_PROPERTY = os.getenv('norrep')
+assert NORREP_CONFIG_PROPERTY is not None, "The environment variable 'norrep' was not set properly"
+
+NORREP_CONFIG = NORREP_CONFIG_PROPERTY.split(';')
+"""
+The norrep config should respectively contain:
+0. The secret key of the django application.
+1. The database username
+2. The database password
+3. the database host
+4. the database port
+5. The database name
+6. The host gmail address
+7. The host gmail password
+"""
+assert len(NORREP_CONFIG) == 8, f"The environment variable 'norrep' is missing one or more values.\n {NORREP_CONFIG.__doc__}" 
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -20,7 +39,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-+)ew+2#82bv6b6)@i17$#dzewl!msm=u)dj2))6zwdu2&+x@y@'
+SECRET_KEY = NORREP_CONFIG[0]
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -37,6 +56,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'compressor',
+    'fontawesomefree',
 ]
 
 MIDDLEWARE = [
@@ -75,8 +96,12 @@ WSGI_APPLICATION = 'norrep.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': NORREP_CONFIG[5],
+        'USER': NORREP_CONFIG[1],
+        'PASSWORD': NORREP_CONFIG[2],
+        'HOST': NORREP_CONFIG[3],
+        'PORT': NORREP_CONFIG[4],
     }
 }
 
@@ -84,6 +109,12 @@ DATABASES = {
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
+
+# LOGIN_URL = 'namespace:home'
+# LOGIN_REDIRECT_URL = 'namespace:home'
+
+
+# AUTH_USER_MODEL = 'core.User'
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -114,10 +145,34 @@ USE_L10N = True
 USE_TZ = True
 
 
+# Email settings
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_HOST_USER = NORREP_CONFIG[6]
+EMAIL_HOST_PASSWORD = NORREP_CONFIG[7]
+EMAIL_USE_TLS = True
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+]
+# STATIC_ROOT = STATIC_URL
+STATICFILES_FINDERS = [
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'compressor.finders.CompressorFinder',
+]
+
+COMPRESS_ROOT = STATIC_URL
+COMPRESS_PRECOMPILERS = [
+    ('text/x-sass', 'sass {infile} {outfile}'),
+]
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
