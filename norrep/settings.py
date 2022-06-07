@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 import os
 from pathlib import Path
+from shutil import which
 
 
 NORREP_CONFIG_PROPERTY = os.getenv('norrep')
@@ -29,7 +30,6 @@ The norrep config should respectively contain:
 7. The host gmail password
 """
 assert len(NORREP_CONFIG) == 8, f"The environment variable 'norrep' is missing one or more values.\n {NORREP_CONFIG.__doc__}" 
-
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -58,6 +58,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'compressor',
     'fontawesomefree',
+    'core',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -168,10 +170,15 @@ STATICFILES_FINDERS = [
     'compressor.finders.CompressorFinder',
 ]
 
+
 COMPRESS_ROOT = STATIC_URL
-COMPRESS_PRECOMPILERS = [
-    ('text/x-sass', 'sass {infile} {outfile}'),
-]
+COMPRESS_PRECOMPILERS = []
+
+# SASS #
+USE_SASS = True
+if USE_SASS:
+    assert which('sass') is not None and USE_SASS, "Dart SASS must be installed for SASS to be used in this project."
+    COMPRESS_PRECOMPILERS.append(('text/x-sass', 'sass {infile} {outfile}'))
 
 
 # Default primary key field type
