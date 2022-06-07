@@ -59,7 +59,6 @@ INSTALLED_APPS = [
     'compressor',
     'fontawesomefree',
     'core',
-    'users',
 ]
 
 MIDDLEWARE = [
