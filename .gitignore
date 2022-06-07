@@ -1,1 +1,4 @@
 venv
+dump.txt
+*.py[cod]
+*.log
