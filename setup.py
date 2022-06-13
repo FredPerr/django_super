@@ -6,6 +6,7 @@ import fileinput
 
 from django.core.management.utils import get_random_secret_key
 
+
 def get_project_name():
     manage_file_path = os.path.join(pathlib.Path(__file__).parent.absolute(), 'manage.py')
     with open(manage_file_path) as file:
