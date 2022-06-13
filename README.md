@@ -25,10 +25,10 @@
 4. Install [Dart SASS](https://github.com/sass/dart-sass#readme) on your computer
 5. Create a PostgreSQL database for the project
 6. *[Recommended]* Install pgAdmin for PostgreSQL management
-7. 11. __Create__ or __Use__ a [Google account with __2 step verification__](https://myaccount.google.com/intro/security) and create an application password (__keep that password__). The path is `Google Account settings > Security > Enable 2 Steps Verification`, enable it. Then, `Google Account settings > Security > Application passwords` and create a new app password (your may choose a custom name such as the name of your application).
+7. __Create__ or __Use__ a [Google account with __2 step verification__](https://myaccount.google.com/intro/security) and create an application password (__keep that password__). The path is `Google Account settings > Security > Enable 2 Steps Verification`, enable it. Then, `Google Account settings > Security > Application passwords` and create a new app password (your may choose a custom name such as the name of your application).
 8. Configure your project with `python setup.py` and follow the instructions.
 9. Refresh your system environment variables by restarting your computer or using a command.
-10. Create the superuser with `python manage.py createsuperuser`
+10.  Create the superuser with `python manage.py createsuperuser`
 11. Apply migrations with `python manage.py makemigrations` and `python manage.py migrate`
 
 
