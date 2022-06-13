@@ -1,3 +1,5 @@
+
+
 - Custom user model (email based instead of username based).
 - (DEV) Preinstall Sass integration.
 -> Must install Dart SASS for it to work.
@@ -21,3 +23,9 @@ python manage.py createsuperuser [... Create a superuser ...]
 
 Setup or use a Gmail account **with two steps verification and .
 Rename your app.
+pgAdmin and setup database
+dart scss install
+
+Delete CLI.py
+
+Restart computer or refresh Environment variables if possible.
