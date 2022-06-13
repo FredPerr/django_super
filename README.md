@@ -8,6 +8,8 @@
 - User system which includes password recovery and profile update.
 - Basic Styling and functions. 
 
+- Test on home page to send an email with a button.
+
 
 Setup:
 python -m venv venv
@@ -16,3 +18,6 @@ pip install -r requirements.txt
 python manage.py makemigrations
 python manage.py migrate
 python manage.py createsuperuser [... Create a superuser ...]
+
+Setup or use a Gmail account **with two steps verification and .
+Rename your app.

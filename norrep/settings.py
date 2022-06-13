@@ -28,8 +28,10 @@ The norrep config should respectively contain:
 5. The database name
 6. The host gmail address
 7. The host gmail password
+8. Gmail app name
+9. Gmail app password
 """
-assert len(NORREP_CONFIG) == 8, f"The environment variable 'norrep' is missing one or more values.\n {NORREP_CONFIG.__doc__}" 
+assert len(NORREP_CONFIG) == 10, f"The environment variable 'norrep' is missing one or more values.\n {NORREP_CONFIG.__doc__}" 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -76,7 +78,7 @@ ROOT_URLCONF = 'norrep.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -111,8 +113,8 @@ DATABASES = {
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 
-# LOGIN_URL = 'namespace:home'
-# LOGIN_REDIRECT_URL = 'namespace:home'
+LOGIN_URL = 'auth:login'
+LOGIN_REDIRECT_URL = 'home'
 
 
 AUTH_USER_MODEL = 'core.User'
@@ -151,8 +153,10 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = NORREP_CONFIG[6]
-EMAIL_HOST_PASSWORD = NORREP_CONFIG[7]
+EMAIL_HOST_PASSWORD = NORREP_CONFIG[9]
 EMAIL_USE_TLS = True
+EMAIL_APP_NAME = NORREP_CONFIG[8]
+EMAIL_APP_PASSWORD = NORREP_CONFIG[9]
 
 
 # Static files (CSS, JavaScript, Images)
@@ -171,13 +175,12 @@ STATICFILES_FINDERS = [
 
 
 COMPRESS_ROOT = STATIC_URL
-COMPRESS_PRECOMPILERS = []
+COMPRESS_PRECOMPILERS = [
+    ('text/x-sass', 'sass {infile} {outfile}'),
+]
 
 # SASS #
-USE_SASS = True
-if USE_SASS:
-    assert which('sass') is not None and USE_SASS, "Dart SASS must be installed for SASS to be used in this project."
-    COMPRESS_PRECOMPILERS.append(('text/x-sass', 'sass {infile} {outfile}'))
+assert which('sass') is not None, "Dart SASS must be installed for SASS to be used in this project."
 
 
 # Default primary key field type

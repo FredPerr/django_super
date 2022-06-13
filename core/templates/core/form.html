@@ -1,0 +1,17 @@
+{% extends "core/core.html" %}
+
+{% block content%}
+<div class="form-container">
+    <form method="post">
+        <h2 class="form-title">{% block form-title %}{% endblock %}</h2>
+        {% csrf_token %}
+        {% block form-content %}
+        
+        {% endblock %}
+    </form>
+    <div class="form-links">
+        {% block form-links %}
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}

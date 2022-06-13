@@ -1,0 +1,15 @@
+{% extends "core/form.html" %}
+
+{% block title %}{{block.super}} - Registration{% endblock %}
+
+{% block form-content %}
+<form method="post">
+    {% block form-title %}Create your account{% endblock %}
+    {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Register</button>
+</form>
+<div class="form-links">
+  <a href="{% url 'home' %}">Back to home page</a>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "core/form.html" %}
+
+{% block title %}{{block.super}} - Choose a new password{% endblock %}
+
+{% block form-content %}
+    {% if validlink %}
+    {% block form-title %}Set a new password!{% endblock %}
+        {{ form.as_p }}
+        <button type="submit">Apply Changes</button>
+    {% else %}
+    <p>
+        The password reset link was invalid, possibly because it has already been used. 
+        Please request a new password reset.
+    </p>
+    {% endif %}
+{% endblock %}

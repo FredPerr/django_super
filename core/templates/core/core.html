@@ -1,0 +1,27 @@
+{% load static %}
+{% load compress %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Shop items from the Norrep website.">
+    <meta name="application-name" content="Norrep">
+    <meta name="keywords" content="A Small Quality Shop">
+    <meta name="author" content="Fred Perron">
+    <title>{% block title %}Norrep{% endblock%}</title>
+    {% compress css %}
+    <link type="text/x-sass" href="{% static 'style/theme.scss' %}" rel="stylesheet" media="screen">
+    {% endcompress %}
+    <script src="{% static 'fontawesomefree/js/all.min.js' %}"></script>
+    <link rel="shortcut icon" href="{% static 'media/img/favicon.ico' %}" type="image/x-icon">
+    {% block head-extras %}
+    {% endblock %}
+</head>
+<body>
+    {% block content %}
+
+    {% endblock %}
+</body>
+</html>

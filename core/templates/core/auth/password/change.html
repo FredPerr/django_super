@@ -1,0 +1,18 @@
+{% extends "core/form.html" %}
+
+{% block title %}{{block.super}} - Changing Password{% endblock %}
+
+{% block form-content %}
+    {% block form-title %}Password Change{% endblock %}
+    <p>Enter your authentication information below to change your password.</p>
+    {{ form.as_p }}
+    <button type="submit">Apply</button>
+
+{% endblock %}
+{% block form-links %}
+    {% if request.user.is_authenticated %}
+        <a href="{%  url 'home' %}">Back to home page</a>
+    {% else %}
+        <a href="{%  url 'dashboard:overview' %}">Back to home page</a>
+    {% endif %}
+{% endblock %}

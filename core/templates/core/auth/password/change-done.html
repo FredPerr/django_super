@@ -1,0 +1,8 @@
+{% extends "core/core.html" %}
+
+{% block title %}{{block.super}} - Password Changed{% endblock %}
+
+{% block content %}
+<h2>Password change completed</h1>
+<p>Your new password has been set. You can now login <a href="{% url 'auth:login' %}">here</a>.</p>
+{% endblock %}

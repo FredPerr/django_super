@@ -1,0 +1,8 @@
+{% extends "core/core.html" %}
+
+{% block title %}{{block.super}} - Password Recovery Done{% endblock %}
+
+{% block content %}
+<h2>Password recovery completed</h2>
+<p>Your new password has been set. &nbsp;Go to the <a href="{% url 'home' %}">home page</a></p>
+{% endblock %}

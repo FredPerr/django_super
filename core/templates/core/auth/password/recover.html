@@ -1,0 +1,14 @@
+{% extends "core/form.html" %}
+
+{% block title %}{{block.super}} - Password Recovery{% endblock %}
+
+{% block form-content %}
+    {% block form-title %}Password Recovery{% endblock %}
+    <p>Enter your email address below, and we'll email instructions for setting a new one.</p>
+    {{ form.as_p }}
+    <button type="submit">Proceed</button>
+{% endblock %}
+
+{% block form-links %}
+    <a href="{%  url 'home' %}">Back to home page</a>
+{% endblock %}

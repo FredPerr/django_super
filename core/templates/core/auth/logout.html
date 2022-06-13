@@ -1,0 +1,8 @@
+{% extends "core/core.html" %}
+
+{% block title %}{{block.super}} - Logged out{% endblock %}
+
+{% block content %}
+  <h2>Disconnected</h2>
+  <p>You are now fully disconnected! <a  class="underline" href="{% url 'auth:login' %}">Log back in</a></p>
+{% endblock %}

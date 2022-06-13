@@ -1,0 +1,8 @@
+{% extends "core/form.html" %}
+
+{% block title %}{{block.super}} - Login{% endblock %}
+
+{% block form-content %}
+    {{form.as_p}}
+    <button type="submit">Login</button>
+{% endblock %}

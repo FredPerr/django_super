@@ -1,0 +1,27 @@
+{% extends "core/core.html" %}
+
+{% block content %}
+<h1>Home</h1>
+<div>
+    <span>Installation checklist:</span>
+    <ul>
+        <li><strong>FontAwesome</strong> icon test: <i class="fa-solid fa-ban-smoking"></i></li>
+        <li><strong>SCSS</strong> working: <i id="scss-installed" style="color: red;">&#9632;</i></li>
+    </ul>
+</div>
+<div>
+    <span>Quick navigation <i>(default links available only)</i></span>
+    <ul>
+        <li><a href="{% url 'auth:login' %}">Login</a></li>
+        <li><a href="{% url 'auth:register' %}">Register</a></li>
+        <li><a href="{% url 'auth:logout' %}">Logout</a></li>
+        <li><a href="{% url 'password:change' %}">Change password</a></li>
+        <li><a href="{% url 'password:recover' %}">Recover password</a></li>
+        <li><a href="{% url 'home' %}">Home (here)</a></li>
+        {% if request.user.is_superuser %}
+        <li><a href="{% url 'admin:index' %}">Django Admin Panel</a></li>
+        {% endif %}
+    </ul>
+
+</div>
+{% endblock %}
