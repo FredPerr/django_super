@@ -26,12 +26,10 @@ The norrep config should respectively contain:
 3. the database host
 4. the database port
 5. The database name
-6. The host gmail address
-7. The host gmail password
-8. Gmail app name
-9. Gmail app password
+6. The Gmail account address
+7. The Gmail created application password (see README.md setup)
 """
-assert len(NORREP_CONFIG) == 10, f"The environment variable 'norrep' is missing one or more values.\n {NORREP_CONFIG.__doc__}" 
+assert len(NORREP_CONFIG) == 8, f"The environment variable 'norrep' is missing one or more values.\n {NORREP_CONFIG.__doc__}" 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -153,10 +151,8 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_HOST_USER = NORREP_CONFIG[6]
-EMAIL_HOST_PASSWORD = NORREP_CONFIG[9]
+EMAIL_HOST_PASSWORD = NORREP_CONFIG[7]
 EMAIL_USE_TLS = True
-EMAIL_APP_NAME = NORREP_CONFIG[8]
-EMAIL_APP_PASSWORD = NORREP_CONFIG[9]
 
 
 # Static files (CSS, JavaScript, Images)
