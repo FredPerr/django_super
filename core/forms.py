@@ -1,4 +1,4 @@
-from django.forms import ModelForm
+from django.forms import ModelForm, Form, EmailField
 from django.urls import reverse_lazy
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.contrib.auth.forms import (
@@ -8,6 +8,10 @@ from django.contrib.auth.forms import (
 )
 
 from .models import User
+
+
+class EmailTestForm(Form):
+    email = EmailField()
 
 
 class UserRegisterForm(UserCreationForm):

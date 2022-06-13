@@ -7,6 +7,18 @@
     <ul>
         <li><strong>FontAwesome</strong> icon test: <i class="fa-solid fa-ban-smoking"></i></li>
         <li><strong>SCSS</strong> working: <i id="scss-installed" style="color: red;">&#9632;</i></li>
+        <li>
+            {% if form %}
+            <form method="post">
+                {% csrf_token %}
+                {{form.as_p}}
+                <input type="submit" value="Send a test email">
+            </form>
+            {% endif %}
+            {% if email_sent %}
+            <p>The email has been sent. Please verify in your inbox for the test email.</p>
+            {% endif %}
+        </li>
     </ul>
 </div>
 <div>
