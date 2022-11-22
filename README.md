@@ -1,11 +1,5 @@
 # Django Super
 
-## Table of content
-
-1.  [Project features](#features)
-2.  [Setup](#setup)
-3.  [License](#license)
-
 ## Features
 
   - Custom __email__ based User model
@@ -42,28 +36,6 @@ Go to `localhost:8000` and verify the checklist (with the email system)
 Dart SASS and FontAwesome are not dependent on each other. If one fails, please read the instruction on their respective website to install.
 
 For the Email system, changes may happen such as the recent removal of _less secure apps_ system. Please open a ticket if that is the case.
-
-## License
-
-This project uses **Apache License v2**:
-
-**Permissions**:
-
-#### Commercial use: ####
-
-&#9989; Distribution
-
-&#9989; Modification
-
-&#9989; Patent use
-
-&#9989; Private use
-
-#### Conditions: ####
-
-&#10071; License and copyright notice
-
-&#10071; State changes
 
   
 
