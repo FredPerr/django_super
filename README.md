@@ -37,16 +37,4 @@ Dart SASS and FontAwesome are not dependent on each other. If one fails, please 
 
 For the Email system, changes may happen such as the recent removal of _less secure apps_ system. Please open a ticket if that is the case.
 
-  
-
-#### Limitations: ####
-
-&#10060; Liability
-
-&#10060; Trademark use
-
-&#10060; Warranty
-
-  
-
 ___
